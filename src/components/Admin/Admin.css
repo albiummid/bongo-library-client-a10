@@ -1,0 +1,24 @@
+.admin-nav{
+    padding: 20px;
+    width: 30%;
+    color: white;
+  text-align: center;
+    background-color:teal;
+}
+.nav-display{
+    width: 70%;
+
+}
+.admin-page{
+    display: flex;
+    gap: 70px;
+}
+
+.selected{
+    background-color: #17a2b8;
+}
+.admin-nav span{
+    display: block;
+    padding: 10px;
+
+}

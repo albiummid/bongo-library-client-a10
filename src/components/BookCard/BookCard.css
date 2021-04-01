@@ -1,4 +1,4 @@
-.product-card{
+.book-card{
     width: 300px;
     text-align: center;
     padding: 20px;
@@ -10,17 +10,17 @@
     grid-template-rows: 1fr;
     margin: 0 auto;
 }
-.product-card:hover{
+.book-card:hover{
     border: 2px solid #17a2b8;
     box-shadow: 10px 10px 15px gray;
 }
-.product-card img{
+.book-card img{
     margin: 0 auto;
     width: 220px;
     height: 250px;
     padding: 10px;
 }
-.product-card  button{
+.book-card  button{
     background-color: #17a2b8;
     color: white;
     width: 100px;
@@ -32,7 +32,7 @@
     outline: none;
 }
 
-.product-card button:hover{
+.book-card button:hover{
     background-color:white;
     color: #17a2b8;
     border: 1px solid #17a2b8;
@@ -45,6 +45,6 @@ outline: none;
     justify-content: space-between;
     align-items: center;
 }
-.product-card p{
+.book-card p{
     padding: 10px 0;
 }

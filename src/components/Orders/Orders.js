@@ -63,7 +63,7 @@ const Orders = () => {
                 id &&
                 <div className="order-container">
                     <h1 style={{textAlign:"center"}}>Order Product</h1>
-                <div className="product-card">
+                <div className="book-card">
                     <img src={image} alt="" />
                     <h3>{name}</h3>
                     <p>Author: {author}</p>

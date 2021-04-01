@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import './ProductCard.css'
-const ProductCard = (props) => {
+import './BookCard.css'
+const BookCard = (props) => {
     const { author, image, name, price, _id } = props.book;
     const history = useHistory();
     const clickHandler=(id) => {
@@ -10,7 +10,7 @@ const ProductCard = (props) => {
         
     }
     return (
-        <div className="product-card">
+        <div className="book-card">
             <img src={image} alt="" />
             <h3>{name}</h3>
             <p>Author: { author}</p>
@@ -22,4 +22,4 @@ const ProductCard = (props) => {
     );
 };
 
-export default ProductCard;
+export default BookCard;

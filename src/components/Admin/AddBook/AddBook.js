@@ -1,26 +1,26 @@
 import React from 'react';
-import './AddProduct.css'
+import './AddBook.css'
 import { useForm } from "react-hook-form"
 import axios from 'axios';
 import { useState } from 'react';
-const AddProduct = () => {
+const AddBook = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const [imageUrl, setImageUrl] = useState(null);
     const onSubmit = data => {
-        const productInfo = {
+        const bookInfo = {
             name: data.name,
             author: data.author,
             price: data.price,
             image: imageUrl
         }
-        const url = `http://localhost:5009/addProduct`
-        console.log(productInfo);
+        const url = `http://localhost:5009/addBook`
+        console.log(bookInfo);
         fetch(url, {
             method: "POST",
             headers:{
                 "content-type": 'application/json'
             },
-            body: JSON.stringify(productInfo)
+            body: JSON.stringify(bookInfo)
         })
             .then(res => res.json())
             .then(data => {
@@ -51,7 +51,10 @@ const AddProduct = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="form-container">
-            <fieldset>
+            <h1>Add Book</h1>
+            <div className="book-input">
+
+            <div>  <fieldset>
                 <legend>Book Name</legend>
                 <input type="text" name="name" required ref={register}/>
             </fieldset>
@@ -59,8 +62,9 @@ const AddProduct = () => {
             <fieldset>
                 <legend>Author Name</legend>
                 <input type="text" name="author" required ref={register}/>
-            </fieldset>
-            <fieldset>
+            </fieldset></div>
+            <div>
+                 <fieldset>
                 <legend>Add Price</legend>
                 <input type="text" name="price" required ref={register}/>
             </fieldset>
@@ -69,6 +73,8 @@ const AddProduct = () => {
                 <legend>Add Book Cover Photo</legend>
                 <input type="file" required onChange={handleImageUpload}/>
             </fieldset>
+           </div>
+          </div>
          
             {
                 imageUrl ? <input type="submit" className="btn" /> :
@@ -78,4 +84,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AddBook;

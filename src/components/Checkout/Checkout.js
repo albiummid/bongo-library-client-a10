@@ -25,7 +25,7 @@ const Checkout = () => {
                     <b>Quantity</b>
                     <b>Price</b>
                 </div>
-                <div className="product-info">
+                <div className="book-info">
                     <div className="book-preview">
                         <img src={image} alt="" />
                         <p>Name: {name}  <br /> Author : {author}</p>
