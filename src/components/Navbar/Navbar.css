@@ -1,14 +1,16 @@
-.btn{
+.btn-nav{
     padding:5px 20px;
     border-radius: 4px;
     outline:none;
+    border:none;
     font-size: 18px;
     color:white;
+    border: 2px solid #1888ff;
     background-color:#1888ff;
     cursor:pointer;
 }
 
-.btn:hover{
+.btn-nav:hover{
     transition:all 0.3s ease-out;
     background-color:transparent;
     color:white;
@@ -18,10 +20,11 @@
 
 .navbar {
     background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-    height: 90px;
+    height: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-between;
     align-items: center;
+    padding: 0 30px;
   }
   
   .navbar-logo {
@@ -29,6 +32,7 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 30px;
+    /* margin-left: 20px; */
   }
   
   .fa-firstdraft {
@@ -37,32 +41,30 @@
   }
   
   .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
+    display: flex;
     list-style: none;
     text-align: center;
-    width: 70vw;
-    justify-content: end;
-    margin-right: 2rem;
   }
   
   .nav-item {
     display: flex;
     align-items: center;
-    height: 80px;
+    height: 40px;
+    margin-left: 10px;
   }
   
   .nav-links {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    
   }
   
   .nav-links:hover {
     background-color: #1888ff;
     border-radius: 4px;
     transition: all 0.2s ease-out;
+    
   }
   
   .fa-bars {
@@ -76,17 +78,26 @@
   .menu-icon {
     display: none;
   }
+  .user-name{
+  color: #1888ff;
+  border-bottom: 1px solid #1888ff; 
+     border-top: 1px solid #1888ff; 
+
+  }
   
   @media screen and (max-width: 960px) {
     .NavbarItems {
       position: relative;
+    }
+    .nav-item{
+      height: 90px;
     }
   
     .nav-menu {
       display: flex;
       flex-direction: column;
       width: 100%;
-      height: 90vh;
+      /* height: 90vh; */
       position: absolute;
       top: 80px;
       left: -100%;
@@ -101,16 +112,21 @@
       transition: all 0.5s ease;
       z-index: 1;
     }
+    .user-name {
+      border:none;
+    }
   
-    .nav-links {
+    .nav-links,.user-name {
       text-align: center;
       padding: 2rem;
       width: 100%;
+      
       display: table;
     }
   
     .nav-links:hover {
       background-color: #1888ff;
+     
       border-radius: 0;
       width: 50%;
       margin: 0 auto;
@@ -156,8 +172,11 @@
       transition: 250ms;
     
     }
+    .navbar {
+   height:80px;
+    }
   
-    button {
+    .btn-nav {
       display: none;
     }
     .navbar-logo {

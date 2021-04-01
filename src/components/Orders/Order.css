@@ -1,0 +1,23 @@
+.order-page{
+    margin-top: 50px;
+    display: flex;
+justify-content: center;
+}
+.order-container{
+    margin: 0 auto;
+   
+    width: 40%;
+    border-left: 2px solid teal;
+}
+.ordered-container{
+width: 70%;
+/* display: flex;
+flex-direction: column;
+justify-content: center; */
+}
+.order-info{
+    margin: 20px auto;
+}
+.btn-confirm{
+    margin: 0 auto;
+}

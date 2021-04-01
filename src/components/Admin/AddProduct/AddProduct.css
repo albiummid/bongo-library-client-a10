@@ -1,0 +1,12 @@
+.form-container{
+    width:400px;
+    
+    margin:0 auto;
+}
+.form-container fieldset{
+    padding:10px;
+}
+.form-container input{
+    padding:5px;
+    width: 400px;
+}
