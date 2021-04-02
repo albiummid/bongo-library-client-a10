@@ -37,8 +37,12 @@ const Admin = () => {
     
     // console.log(selectedBook);
     const handleEdit = (id) => {
-        setShowInput(true);
+        
+        if (id) {
+            setShowInput(true);
         setKey(id);
+        setOption("edit")
+        }
         console.log(id);
     }
     return (
@@ -60,7 +64,7 @@ const Admin = () => {
             <div className="nav-display">
                 {
                     option === "add" &&
-                    <AddBook></AddBook>
+                    <AddBook setOption={setOption}></AddBook>
                 }
                 {
                     option === "edit" &&
@@ -68,7 +72,14 @@ const Admin = () => {
                 }
                 {
                     option === "manage" &&
-                    <ManageBooks handleEdit={handleEdit} handleDelete={handleDelete} setOption={setOption} ></ManageBooks>
+                    <ManageBooks handleEdit={handleEdit} handleDelete={handleDelete} option={option} setOption={setOption} >
+                        <div className="manage-card-titles">
+            <b>Book Name</b>
+            <b> Author Name</b>
+            <b> Price</b>
+                <b> Action</b>
+            </div>
+                    </ManageBooks>
                 }
                 {
                     option === "empty" &&

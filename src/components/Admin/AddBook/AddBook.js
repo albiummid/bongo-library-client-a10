@@ -3,9 +3,10 @@ import './AddBook.css'
 import { useForm } from "react-hook-form"
 import axios from 'axios';
 import { useState } from 'react';
-const AddBook = () => {
+const AddBook = (props) => {
     const { register, handleSubmit, watch, errors } = useForm();
     const [imageUrl, setImageUrl] = useState(null);
+    const { setOption } = props;
     const onSubmit = data => {
         const bookInfo = {
             name: data.name,
@@ -26,7 +27,8 @@ const AddBook = () => {
             .then(data => {
                 if (data) {
                     alert("Successfully Data Uploaded on Server 😍")
-                    window.location.reload();
+                    setOption("empty")
+                    setOption("add")
                 }
                 else {
                     console.log("not added");

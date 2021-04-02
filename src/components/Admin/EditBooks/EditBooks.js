@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import ManageBooks from '../ManageBooks/ManageBooks';
 import ManageCard from '../ManageCard/ManageCard';
 import './EditBook.css'
 
@@ -20,79 +21,140 @@ const EditBooks = (props) => {
         console.log(data);
     }
     return (
-        <div className="manage-container">
-            <h1>Edit Books</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="manage-card-titles">
-                <div>
-                    <b>Book Name</b>
-                    <br/>
-                    {
-                        showInput &&
-                        <div className="update-div">
-                        <small style={{color:"teal",fontWeight:"bold"}}>Previous Name:</small>
-                   <br/>
-                            <small>{name}</small>
-                            <br />
-                            <input type="text" name="name" ref={register}/>
-                        </div>
-                       
-               }
-                </div>
-                <div>
-                    <b> Author Name</b>
+        <ManageBooks handleEdit={handleEdit}><form onSubmit={handleSubmit(onSubmit)} className="manage-card-titles">
+        <div>
+            <b>Book Name</b>
+            <br/>
+            {
+                showInput &&
+                <div className="update-div">
+                <small style={{color:"teal",fontWeight:"bold"}}>Previous Name:</small>
+           <br/>
+                    <small>{name}</small>
                     <br />
-                    {showInput &&
-                         <div className="update-div">
-                         <small style={{color:"teal",fontWeight:"bold"}}>Previous author:</small>
+                    <input type="text" name="name" ref={register}/>
+                </div>
+               
+       }
+        </div>
+        <div>
+            <b> Author Name</b>
+            <br />
+            {showInput &&
+                 <div className="update-div">
+                 <small style={{color:"teal",fontWeight:"bold"}}>Previous author:</small>
 <br/>
-                        <small>{author}</small>
-                        <br />
-                        <input type="text" name="author" ref={register}/>
-                    
-                         </div>
-                       }
-                    
+                <small>{author}</small>
+                <br />
+                <input type="text" name="author" ref={register}/>
+            
+                 </div>
+               }
+            
+        </div>
+        <div>
+            <b> Price</b>
+            <br />
+            {showInput &&
+                <div className="update-div">
+                <small style={{color:"teal",fontWeight:"bold"}}>Previous Price:</small>
+                <br/>
+                <small > $ {price}</small>
+                <br />
+                <input type="text" name="Price" ref={register}/>
                 </div>
-                <div>
-                    <b> Price</b>
-                    <br />
-                    {showInput &&
-                        <div className="update-div">
-                        <small style={{color:"teal",fontWeight:"bold"}}>Previous Price:</small>
-                        <br/>
-                        <small > $ {price}</small>
-                        <br />
-                        <input type="text" name="Price" ref={register}/>
-                        </div>
+                
+            }
+           
+        </div>
+        <div>
+            <b> Action</b>
+            <br />
+            <br />
+            <br/>
+            {showInput &&
+                <input type="submit" />
+            }
+            
+        </div>
+    
+    
+    
+       
+    </form></ManageBooks>
+//         <div className="manage-container">
+//             <h1>Edit Books</h1>
+//             <form onSubmit={handleSubmit(onSubmit)} className="manage-card-titles">
+//                 <div>
+//                     <b>Book Name</b>
+//                     <br/>
+//                     {
+//                         showInput &&
+//                         <div className="update-div">
+//                         <small style={{color:"teal",fontWeight:"bold"}}>Previous Name:</small>
+//                    <br/>
+//                             <small>{name}</small>
+//                             <br />
+//                             <input type="text" name="name" ref={register}/>
+//                         </div>
+                       
+//                }
+//                 </div>
+//                 <div>
+//                     <b> Author Name</b>
+//                     <br />
+//                     {showInput &&
+//                          <div className="update-div">
+//                          <small style={{color:"teal",fontWeight:"bold"}}>Previous author:</small>
+// <br/>
+//                         <small>{author}</small>
+//                         <br />
+//                         <input type="text" name="author" ref={register}/>
+                    
+//                          </div>
+//                        }
+                    
+//                 </div>
+//                 <div>
+//                     <b> Price</b>
+//                     <br />
+//                     {showInput &&
+//                         <div className="update-div">
+//                         <small style={{color:"teal",fontWeight:"bold"}}>Previous Price:</small>
+//                         <br/>
+//                         <small > $ {price}</small>
+//                         <br />
+//                         <input type="text" name="Price" ref={register}/>
+//                         </div>
                         
-                    }
+//                     }
                    
-                </div>
-                <div>
-                    <b> Action</b>
-                    <br />
-                    <br />
-                    <br/>
-                    {showInput &&
-                        <input type="submit" />
-                    }
+//                 </div>
+//                 <div>
+//                     <b> Action</b>
+//                     <br />
+//                     <br />
+//                     <br/>
+//                     {showInput &&
+//                         <input type="submit" />
+//                     }
                     
-                </div>
+//                 </div>
             
             
             
                
-            </form>
-            <div className="manage-card-container">
-                <ol>
-                {
-                        books.map(book => <li><ManageCard handleEdit={handleEdit} setOption={setOption} book={book} key={book._id}>
-                        </ManageCard></li>)
-                }
-                </ol>
+//             </form>
+//             <div className="manage-card-container">
+//                 <ol>
+//                 {
+//                         books.map(book => <li><ManageCard handleEdit={handleEdit} setOption={setOption} book={book} key={book._id}>
+//                         </ManageCard></li>)
+//                 }
+//                 </ol>
                 
-            </div>
-        </div>
+//             </div>
+//         </div>
     );
 };
 

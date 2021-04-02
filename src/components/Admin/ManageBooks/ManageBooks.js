@@ -3,7 +3,7 @@ import ManageCard from '../ManageCard/ManageCard';
 import deleteIcon from '../../../images/delete.ico'
 import './ManageBooks.css'
 const ManageBooks = (props) => {
-    const { handleDelete,handleEdit, setOption  } = props;
+    const { handleDelete,handleEdit, setOption,option  } = props;
     const [books, setBooks] = useState([]);
     useEffect(() => {
         const url = "http://localhost:5009/books";
@@ -16,18 +16,20 @@ const ManageBooks = (props) => {
     return (
 
         <div className="manage-container">
-            <h1>Manage Books</h1>
-            <div className="manage-card-titles">
-            <b>Book Name</b>
-            <b> Author Name</b>
-            <b> Price</b>
-                <b> Action</b>
-            </div>
+            {option === "manage" ? 
+            <h1> Manage Books</h1>:
+            <h1> Edit Books</h1>
+        }
+            
+            {
+                props.children
+            }
             <div className="manage-card-container">
                 <ol>
                 {
                         books.map(book => <li><ManageCard handleEdit={handleEdit} setOption={setOption} book={book} key={book._id}>
-                            <button onClick={()=>handleDelete(book._id)} > <img src={deleteIcon} alt=""/> </button> 
+                            { option === "manage" &&
+                                <button onClick={() => handleDelete(book._id)} > <img src={deleteIcon} alt="" /> </button>}
                         </ManageCard></li>)
                 }
                 </ol>
