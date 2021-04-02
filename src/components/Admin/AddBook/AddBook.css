@@ -1,12 +1,15 @@
 .form-container{ 
-    width:400px;
+    margin: 0 auto;
+    width: 350px;
 }
 .form-container fieldset{
     padding:10px;
+    width: 350px;
+
 }
 .form-container input{
     padding:5px;
-    width: 300px;
+    width: 350px;
 }
 .book-input{
     display: grid;

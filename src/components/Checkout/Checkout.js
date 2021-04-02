@@ -6,7 +6,7 @@ const Checkout = () => {
     const { key } = useParams();
     const history = useHistory();
     useEffect(() => {
-        const url = `http://localhost:5009/book/${key}`;
+        const url = `https://bongo-library-api.herokuapp.com/book/${key}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setSelectedProduct(data[0]))

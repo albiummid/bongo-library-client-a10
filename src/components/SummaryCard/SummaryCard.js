@@ -1,19 +1,26 @@
 import React from 'react';
 import './SummaryCard.css'
+import deleteIcon from '../../images/delete.ico'
 const SummaryCard = (props) => {
-    // {date}.toDateString('dd/MM/yyyy')
-    const { name, price, image, author, date } = props.product;
-    // const orderDate = {date}.toDateString('dd/MM/yy');
+    const { name, price, image, author, date,_id } = props.product;
+    const { handleDelete } = props;
+  
+    console.log(props);
     return (
         <div className="summary-card">
             <div className="book-preview">
                 <img src={image} alt="" />
-                <div> <p>Name: {name}  </p>
+                <div style={{textAlign:"justify"}}> <p>Name: {name}  </p>
                     <p> Author : {author}  </p>
-                    <p> Order Date : {date}  </p></div>
+                    <p> Order Date : {date}  </p>
+                     <p>Quantity: 1 </p>
+            <p>Price : $  {price}</p>
+                </div>
             </div>
-            <p>Quantity: 1 </p>
-            <p>$  {price}</p>
+            <div onClick={()=>handleDelete(_id)}>
+                <img  style={{width:"30px"}} src={deleteIcon} alt=""/>
+            </div>
+           
         </div>
     );
 };

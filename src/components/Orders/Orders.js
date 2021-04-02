@@ -1,27 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import './Order.css'
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
 import SummaryCard from '../SummaryCard/SummaryCard';
 const Orders = () => {
+    const history = useHistory();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, errors } = useForm();
     const [selectedProduct, setSelectedProduct] = useState([]);
     const [userOrders, setUserOrders] = useState([]);
-    const { name, image, author } = selectedProduct;
+    const { name, image, author,price } = selectedProduct;
     const { id } = useParams();
+ 
     useEffect(() => {
-        const url = `http://localhost:5009/userOrders?email=${loggedInUser.email}`;
+        const url = `https://bongo-library-api.herokuapp.com/userOrders?email=${loggedInUser.email}`;
         fetch(url)
             .then(res => res.json())
         .then(data => setUserOrders(data))
-    });
+    },[]);
 
 
 
     useEffect(() => {
-        const url = `http://localhost:5009/book/${id}`;
+        const url = `https://bongo-library-api.herokuapp.com/book/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setSelectedProduct(data[0]))
@@ -31,7 +33,7 @@ const Orders = () => {
         const orderInfo = { ...selectedProduct, ...data, date };
         delete orderInfo._id;
         console.log(orderInfo);
-        fetch('http://localhost:5009/addOrders', {
+        fetch('https://bongo-library-api.herokuapp.com/addOrders', {
             method:"POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(orderInfo)
@@ -50,23 +52,40 @@ const Orders = () => {
 
     }
 
+    // handle delete
+    const handleDelete = (id) => {
+        console.log(id);
+        const url = `https://bongo-library-api.herokuapp.com/deleteOrder/${id}`;
+        fetch(url, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert("deleted");
+                }
+            })
+       
+    }
+
  
     return (
         <div className="order-page">
             <div className="ordered-container">
                 <h1 style={{ textAlign: "center" }}>Your Orders</h1>
                 {userOrders.length>0 &&
-                    userOrders.map(product => <SummaryCard product={product} key={product._id}></SummaryCard> )
+                    userOrders.map(product => <SummaryCard handleDelete={handleDelete} product={product} key={product._id}></SummaryCard> )
                 }
             </div>
             {
                 id &&
                 <div className="order-container">
-                    <h1 style={{textAlign:"center"}}>Order Product</h1>
+                    <h1 onClick={handleDelete} style={{textAlign:"center"}}>Order Product</h1>
                 <div className="book-card">
                     <img src={image} alt="" />
                     <h3>{name}</h3>
-                    <p>Author: {author}</p>
+                        <p>Author: {author}</p>
+                        <h3>$ { price}</h3>
                 </div>
                 <div className="order-info">
                     <form onSubmit={handleSubmit(onSubmit)} className="form-container">

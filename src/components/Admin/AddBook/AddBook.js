@@ -14,7 +14,7 @@ const AddBook = (props) => {
             price: data.price,
             image: imageUrl
         }
-        const url = `http://localhost:5009/addBook`
+        const url = `https://bongo-library-api.herokuapp.com/addBook`
         console.log(bookInfo);
         fetch(url, {
             method: "POST",
