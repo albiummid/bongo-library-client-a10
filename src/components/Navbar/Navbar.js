@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css'
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../App';
+import avatar from '../../images/avatar.png'
 const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [click, setClick] = useState(false);
@@ -44,7 +45,16 @@ const Navbar = () => {
                             <li className="nav-item user-name">
                                 {loggedInUser.name}
                             </li>
+                            
                         }
+                        {
+                            loggedInUser.name &&
+                            <li className="nav-item ">
+                                <img src={avatar} alt=""/>
+                            </li>
+                            
+                        }
+
 
                         {
                             loggedInUser.email ? <li className="nav-item" onClick={signOut}> <Link className="nav-links-mobile" onClick={closeMobileMenu}>Log Out</Link>  </li> : <li className="nav-item"> <Link to="/login" className="nav-links-mobile" onClick={closeMobileMenu}>Log In</Link>  </li>

@@ -4,6 +4,16 @@
     justify-content: space-around; 
 
 }
+.empty-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40%;
+}
+.btn-div{
+    display: flex;
+    margin: 10px;
+}
 .order-container{
     border-left: 1px dashed teal;
     padding: 0 40px;

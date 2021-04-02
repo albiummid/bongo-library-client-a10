@@ -73,6 +73,12 @@ const Orders = () => {
                 {userOrders.length>0 &&
                     userOrders.map(book => <SummaryCard handleDelete={handleDelete} book={book} key={book._id}></SummaryCard> )
                 }
+                {userOrders.length=== 0 &&
+                    <div className="empty-div">
+                    <h1>You haven't any order right now !</h1>
+                    </div>
+                }
+
             </div>
             {
                 id &&
@@ -103,10 +109,12 @@ const Orders = () => {
                             <legend>Address</legend>
                             <input type="text" name="address" ref={register} required />
                             </fieldset>
-                            <br/>
-                            <fieldset>
-                            <input type="submit" className="btn btn-confirm"  />
-                            </fieldset>
+                        
+                            <div className=" btn-div">
+                                
+                            <input type="submit" className="btn "  />
+                            
+                         </div>
                     </form>
 
                 </div>

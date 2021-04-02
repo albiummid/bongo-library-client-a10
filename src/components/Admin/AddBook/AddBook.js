@@ -71,9 +71,9 @@ const AddBook = (props) => {
             </fieldset>
            </div>
           </div>
-         
+         <br/>
             {
-                imageUrl ? <input type="submit" className="btn" /> :
+                imageUrl ?<input type="submit" className=" btn" />  :
                     <p style={{color:"red",textAlign:"center"}}>Complete all field then submit button will appers</p>
            }
         </form>

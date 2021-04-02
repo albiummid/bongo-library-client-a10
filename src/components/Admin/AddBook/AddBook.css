@@ -9,12 +9,16 @@
 }
 .form-container input{
     padding:5px;
-    width: 200px;
+    width: 350px;
 }
 .book-input{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
+}
+.form-container .btn{
+    width: 80px;
+    margin: 0 auto;
 }
 @media(max-width:720px){
     input,span{
@@ -36,6 +40,7 @@
     .book-input{
         display:flex;
         flex-direction: column;
-        grid-gap: 30px;
+        text-align: center;
+        grid-gap: 0;
     }
 }

@@ -98,25 +98,29 @@ cursor: pointer;
 }
 .btn{
     width: 90px;
-    height: 30px;
-    background-color: teal;
+    height: 40px;
     box-shadow: none;
     border-radius: 5px;
-    color:white;
+ color: teal;
+ border: 1px solid teal;
     font-size: 15px;
     font-weight: 200;
-    border: none;
     cursor: pointer;
     outline: none;
 }
 
 .btn:hover{
-    background-color: white;
-    color: teal;
-    border: 2px solid teal;
+    background-color: teal;
+  
+    color:white;
+    border: 1px solid teal;
 }
 
+
 @media(max-width:900px){
+    .input-group span{
+        padding-bottom: 4px;
+    }
     .sign-card{
         display: flex;
         flex-direction: column-reverse;
@@ -133,28 +137,4 @@ cursor: pointer;
         margin:0 auto;
     }
    
-}
-
-@media(max-width:480px){
-    .sign-card{
-        display: flex;
-        width: 200px;
-    }
-   
-    .input-div,.img-div {
-        width: 200px;
-      display: grid;
-      grid-template-rows: 250px 50px ;
-      justify-content: center;
-    }
-    .img-div img{
-        width: 220px;
-    }
-    .input-div{
-        height: 400px;
-    }
-    .social-links{
-        margin-top: 100px;
-    }
-
 }
