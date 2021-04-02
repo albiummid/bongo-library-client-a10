@@ -18,7 +18,7 @@ const Admin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                    alert("deleted");
+                    alert("Book Data Successfully Deleted.");
                     setOption("empty")
                     setOption("manage")
                 }
@@ -46,8 +46,6 @@ const Admin = () => {
         <div className="admin-page">
             <div className="admin-nav">
                 <h1>Admin Pannel</h1>
-                <br />
-                <br />
                 <span className={option === "manage" && "selected"} onClick={() => setOption("manage")}>
                     <FontAwesomeIcon icon={faTasks} size="1x" />                    Manage Books
                     </span>

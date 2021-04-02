@@ -15,9 +15,8 @@ const Home = () => {
     return (
         <div className="home-container">
            
-            <h1 style={{ textAlign: "center" }}>This is Home</h1>
             <div className="search-bar">
-                <input type="text"/><button className="btn">search</button>
+                <input placeholder="Search Your Desire !" type="text"/><button className="btn">search</button>
             </div>
             <div className="cards-container">
                 {

@@ -54,9 +54,6 @@ const Login = () => {
     const handleChange = (event) => {
         let isFieldValid = true;
         let isPasswordMatched = false;
-        console.log(isPasswordMatched);
-        console.log("password is", user.password);
-        console.log("confirm Password is", user.confirmPassword);
 
 
         if (event.target.name === 'name') {
@@ -84,7 +81,6 @@ const Login = () => {
         if (isFieldValid) {
             const userInfo = { ...user };
             userInfo[event.target.name] = event.target.value;
-            console.log("after update userInfo", userInfo);
             setUser(userInfo);
         }
 
@@ -101,7 +97,6 @@ const Login = () => {
                     newUserInfo.name = user.name;
                     newUserInfo.error = '';
                     setLoggedInUser(newUserInfo);
-                    // console.log(res.user,"user info of signup");
                     alert('SignUp successfully completed 😍')
                     updateUserName(user.name);
                     history.replace(from);
@@ -116,13 +111,11 @@ const Login = () => {
                 });
         }
         if (!newUser && user.email && user.password) {
-            console.log("cliked on login");
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
                 .then(res => {
 
                     const { email, displayName } = res.user;
                     const newUserInfo = { email, name: displayName }
-                    console.log("User", res.user);
                     newUserInfo.error = '';
                     setLoggedInUser(newUserInfo);
                     alert("login successful 😍")
@@ -145,7 +138,6 @@ const Login = () => {
         user.updateProfile({
             displayName: name
         }).then(function () {
-            console.log("succefully");
         }).catch(function (error) {
             console.log("error occured",error);
         });

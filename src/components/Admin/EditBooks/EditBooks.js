@@ -5,24 +5,25 @@ import './EditBook.css'
 
 const EditBooks = (props) => {
     const { register, handleSubmit, watch, errors } = useForm();
-    const { handleEdit, showInput, selectedBook ,editId,setOption} = props;
+    const { handleEdit, showInput, selectedBook, editId, setOption } = props;
     const { name, author, price } = selectedBook;
     const onSubmit = data => {
         const editedData = { ...data };
-        console.log(editedData);
         fetch(`https://bongo-library-api.herokuapp.com/edit/${editId}`, {
             method: "PATCH",
             headers: { "content-type": "application/json" },
-            body:JSON.stringify(editedData)
+            body: JSON.stringify(editedData)
         })
             .then(res => res.json())
-            .then(data => {if (data) {
-                setOption("empty");
-                setOption("edit");
-                console.log("edit done");
-        }})
-        
-        
+            .then(data => {
+                if (data) {
+                    setOption("empty");
+                    setOption("edit");
+                    alert("Book Information Updated !")
+                }
+            })
+
+
     }
     return (
         <ManageBooks handleEdit={handleEdit}>

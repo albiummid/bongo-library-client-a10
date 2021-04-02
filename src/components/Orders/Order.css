@@ -7,8 +7,7 @@
 .order-container{
     border-left: 1px dashed teal;
     padding: 0 40px;
-    width: 30%;
-    /* margin: auto; */
+    width: 500px;
 }
 .ordered-container{
     width: 70%;
@@ -22,4 +21,32 @@
 }
 .book-card{
     margin: 20px auto;
+}
+@media(max-width:720px){
+    .order-page{
+        margin-top: 10px;
+        flex-direction: column-reverse;
+       
+    
+    }
+    .order-container{
+        border-left: 1px dashed teal;
+        padding: 50px 0;
+        width: 100%;
+        border-bottom: 1px dotted teal;
+    }
+    .ordered-container{
+        width: 100%;
+      
+    
+    }
+    .input{
+        width: 10%;
+    }
+    .btn-confirm{
+        margin: 0 auto;
+    }
+    .book-card{
+        margin: 20px auto;
+    }
 }

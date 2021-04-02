@@ -2,10 +2,8 @@ import React from 'react';
 import './SummaryCard.css'
 import deleteIcon from '../../images/delete.ico'
 const SummaryCard = (props) => {
-    const { name, price, image, author, date,_id } = props.product;
+    const { name, price, image, author, date,_id } = props.book;
     const { handleDelete } = props;
-  
-    console.log(props);
     return (
         <div className="summary-card">
             <div className="book-preview">
@@ -17,8 +15,9 @@ const SummaryCard = (props) => {
             <p>Price : $  {price}</p>
                 </div>
             </div>
-            <div onClick={()=>handleDelete(_id)}>
-                <img  style={{width:"30px"}} src={deleteIcon} alt=""/>
+            <div >
+                <button className="action-button" onClick={() => handleDelete(_id)}><img  style={{width:"30px"}} src={deleteIcon} alt=""/></button>
+                
             </div>
            
         </div>

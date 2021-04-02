@@ -15,7 +15,6 @@ const AddBook = (props) => {
             image: imageUrl
         }
         const url = `https://bongo-library-api.herokuapp.com/addBook`
-        console.log(bookInfo);
         fetch(url, {
             method: "POST",
             headers:{
@@ -30,24 +29,19 @@ const AddBook = (props) => {
                     setOption("empty")
                     setOption("add")
                 }
-                else {
-                    console.log("not added");
-                }
+              
         })
        
     }
     const handleImageUpload = event => {
-        console.log(event.target.files[0]);
         const imageData = new FormData();
         imageData.set('key', 'b70ec09f117505d271f0a605e9978bb9');
         imageData.append('image', event.target.files[0]);
         axios.post('https://api.imgbb.com/1/upload', imageData)
           .then(function (response) {
-              console.log(response.data.data.display_url);
               setImageUrl(response.data.data.display_url);
           })
           .catch(function (error) {
-            console.log(error);
           });
     }
 

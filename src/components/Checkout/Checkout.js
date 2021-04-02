@@ -18,7 +18,7 @@ const Checkout = () => {
     const { name, price, image, author } = selectedProduct;
     return (
         <div>
-            <h1>Checkout</h1>
+            <h1 style={{textAlign:"center"}}>Checkout</h1>
             <div className="checkout-table">
                 <div className="table-titles">
                     <b>Discription</b>
@@ -41,7 +41,7 @@ const Checkout = () => {
                 </div>
             </div>
             <div className="btn-checkout">
-                <button onClick={() => clickHandler(key)} className="btn ">Place order</button>
+                <button onClick={() => clickHandler(key)} className="btn ">Checkout</button>
             </div>
 
         </div>

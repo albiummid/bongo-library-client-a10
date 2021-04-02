@@ -15,10 +15,10 @@ const ManageBooks = (props) => {
 
     return (
 
-        <div className="manage-container">
+        <div  className="manage-container">
             {option === "manage" ? 
-            <h1> Manage Books</h1>:
-            <h1> Edit Books</h1>
+            <h1 style={{textAlign:"center",marginBottom:"50px"}}> Manage Books</h1>:
+            <h1 style={{textAlign:"center",marginBottom:"50px"}}> Edit Books</h1>
         }
             
             {

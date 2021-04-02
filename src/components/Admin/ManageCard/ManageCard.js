@@ -11,7 +11,7 @@ const ManageCard = (props) => {
             <p> {author} </p>
             <p> $ {price} </p>
             <div className="action-div">
-                <button onClick={() => handleEdit(_id)} > <img  src={editIcon} alt="" /> </button>  {
+                <button  onClick={() => handleEdit(_id)} > <img  src={editIcon} alt="" /> </button>  {
                         props.children
                 }
             </div>
