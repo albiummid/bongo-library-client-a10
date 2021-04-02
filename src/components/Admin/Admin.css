@@ -1,17 +1,18 @@
 .admin-nav{
     padding: 20px;
-    width: 30%;
+    min-width: 300px;
+    height: 900px;
     color: white;
   text-align: center;
     background-color:teal;
 }
 .nav-display{
-    width: 70%;
+    margin: 30px  90px;
 
 }
 .admin-page{
     display: flex;
-    gap: 70px;
+    /* gap: 50px; */
 }
 
 .selected{
